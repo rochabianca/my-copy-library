@@ -7,6 +7,7 @@ import "./App.css";
 import Navbar from "./components/layouts/Navbar";
 import copyLibraries from "../src/components/copyLibraries/copyLibraries";
 import AddCopyLibrary from "./components/copyLibraries/AddCopyLibrary";
+import EditCopyLibrary from "./components/copyLibraries/EditCopyLibrary";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <div className="container">
               <Route exact path="/" component={copyLibraries} />
               <Route exact path="/new" component={AddCopyLibrary} />
+              <Route exact path="/edit" component={EditCopyLibrary} />
               <Switch />
             </div>
           </div>

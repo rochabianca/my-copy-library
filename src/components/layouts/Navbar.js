@@ -11,6 +11,9 @@ class Navbar extends Component {
           <li>
             <Link to="/new">Add</Link>
           </li>
+          <li>
+            <Link to="/edit">Edit</Link>
+          </li>
         </ul>
       </div>
     );

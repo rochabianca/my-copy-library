@@ -1,17 +1,19 @@
 import React, { Component } from "react";
-import { compose } from "redux";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import CopyLibrary from "../layouts/copyLibrary";
 
-class copyLibraries extends Component {
+class EditCopyLibrary extends Component {
   render() {
     const { copyLibraries } = this.props;
 
     if (copyLibraries) {
       return (
         <div>
+          <h1>Edit Mode</h1>
           {copyLibraries.map(copyLibrary => (
             <div key={copyLibrary.id}>
               <CopyLibrary copyLibrary={copyLibrary} />
@@ -20,12 +22,12 @@ class copyLibraries extends Component {
         </div>
       );
     } else {
-      return <div>Loading</div>;
+      return "Loading...";
     }
   }
 }
 
-copyLibraries.propTypes = {
+EditCopyLibrary.propTypes = {
   firestore: PropTypes.object.isRequired,
   copyLibraries: PropTypes.array
 };
@@ -39,4 +41,4 @@ export default compose(
   connect((state, props) => ({
     copyLibraries: state.firestore.ordered.copyLibrary
   }))
-)(copyLibraries);
+)(EditCopyLibrary);

@@ -18,7 +18,6 @@ class AddCopyLibrary extends Component {
 
   changeSelectValue = selectedOption => {
     this.setState({ type: selectedOption.value });
-    console.log("Option selected: ", selectedOption.value);
   };
 
   onSubmit = e => {
@@ -26,7 +25,7 @@ class AddCopyLibrary extends Component {
 
     const newCopyLibrary = this.state;
     const { firestore, history } = this.props;
-    // todo: error message if the type or field are empty
+
     if (newCopyLibrary.type !== "" && newCopyLibrary.field !== "") {
       firestore
         .add({ collection: "copyLibrary" }, newCopyLibrary)

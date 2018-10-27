@@ -28,7 +28,7 @@ this project it's a web app where you can put links to easy copy and paste when 
 
 ### Edit
 
-- [ ] Create a Edit mode
+- [x] Create a Edit mode
 - [ ] Rearrange copy libraries
 - [ ] Delete copy libraries
 
