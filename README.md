@@ -22,8 +22,9 @@ this project it's a web app where you can put links to easy copy and paste when 
 - [x] Create the New Copy Library
 - [x] Add data to Firestore
 - [x] Don't send it if the entries are blank
-- [ ] More easy way to select the type
-- [ ] Better labels names
+- [x] More easy way to select the type
+- [x] Handle Errors
+- [x] Better labels names
 
 ### Edit
 
