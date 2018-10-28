@@ -14,7 +14,7 @@ this project it's a web app where you can put links to easy copy and paste when 
 
 - [x] Show Copy Libraries from Firebase
 - [x] Easy Copy
-- [ ] If the type is know (Github, Dribbble, Behance) add their icon
+- [x] If the type is know (Github, Dribbble, Behance) add their icon
 - [ ] Auth
 
 ### New Copy Library

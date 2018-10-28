@@ -8542,3 +8542,34 @@ a.text-dark:focus, a.text-dark:hover {
 }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  align-items: center;
+  background-color: #01124b;
+  margin-bottom: 30px;
+}
+
+.navbar__brand a {
+  color: #ffb115;
+}
+
+.navbar__list {
+  display: flex;
+  margin: 0px;
+}
+
+.navbar__list li a {
+  color: #ffffff;
+  margin-left: 15px;
+}
+
+.navbar__list li a:hover {
+  color: #ffb115;
+}
+
+a,
+a:hover {
+  text-decoration: none;
+}

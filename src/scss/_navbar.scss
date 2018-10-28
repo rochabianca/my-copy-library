@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 10px;
+  align-items: center;
+  background-color: $secundary;
+  margin-bottom: 30px;
+}
+
+.navbar__brand {
+  a {
+    color: $primary;
+  }
+}
+
+.navbar__list {
+  display: flex;
+  margin: 0px;
+
+  li a {
+    color: $white;
+    margin-left: 15px;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}

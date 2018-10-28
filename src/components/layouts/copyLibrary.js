@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Types from "../../Types";
 
 class copyLibrary extends Component {
   onClick = id => {
@@ -6,12 +7,24 @@ class copyLibrary extends Component {
     copyText.select();
     document.execCommand("copy");
   };
+
+  chooseIcon = type => {
+    for (let i = 0; i < Types.length; i++) {
+      if (type === Types[i].type) {
+        return Types[i].klass;
+      }
+    }
+    return null;
+  };
   render() {
     const { copyLibrary } = this.props;
     if (copyLibrary) {
       return (
         <div>
-          <label>{copyLibrary.type}</label>
+          <label>
+            <i className={this.chooseIcon(copyLibrary.type)} />{" "}
+            {copyLibrary.type}
+          </label>
           <input
             id={`copyToClipboard-${copyLibrary.id}`}
             value={copyLibrary.field}

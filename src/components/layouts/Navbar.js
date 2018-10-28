@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 class Navbar extends Component {
   render() {
     return (
-      <div>
-        <ul>
+      <div className="navbar">
+        <div className="navbar__brand">
+          <Link to="/">My Copy Library</Link>
+        </div>
+        <ul className="navbar__list">
           <li>
-            <Link to="/">Logo</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
             <Link to="/new">Add</Link>
