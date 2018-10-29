@@ -1,11 +1,32 @@
 import React, { Component } from "react";
 import Types from "../../Types";
 
+const copyText = copy => {
+  copy.select();
+  document.execCommand("copy");
+};
+
 class copyLibrary extends Component {
   onClick = id => {
-    var copyText = document.getElementById(`copyToClipboard-${id}`);
-    copyText.select();
-    document.execCommand("copy");
+    const copy = document.getElementById(`copyToClipboard-${id}`);
+    copyText(copy);
+  };
+
+  onClickFunction = id => {
+    const { editMode } = this.props;
+    if (editMode) {
+      return null;
+    } else {
+      var copy = document.getElementById(`copyToClipboard-${id}`);
+      copy.readOnly = true;
+      copyText(copy);
+    }
+  };
+
+  onChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
   };
 
   chooseIcon = type => {
@@ -27,8 +48,9 @@ class copyLibrary extends Component {
           </label>
           <input
             id={`copyToClipboard-${copyLibrary.id}`}
-            value={copyLibrary.field}
-            readOnly
+            defaultValue={copyLibrary.field}
+            onClick={this.onClickFunction.bind(this, copyLibrary.id)}
+            onChange={this.onChange}
           />
           <button onClick={this.onClick.bind(this, copyLibrary.id)}>
             Copy

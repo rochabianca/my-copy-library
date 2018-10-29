@@ -15,7 +15,7 @@ class EditCopyLibrary extends Component {
           <h1>Edit Mode</h1>
           {copyLibraries.map(copyLibrary => (
             <div key={copyLibrary.id}>
-              <CopyLibrary copyLibrary={copyLibrary} />
+              <CopyLibrary editMode={1} copyLibrary={copyLibrary} />
             </div>
           ))}
         </div>
