@@ -30,7 +30,7 @@ this project it's a web app where you can put links to easy copy and paste when 
 
 - [x] Create a Edit mode
 - [ ] Rearrange copy libraries
-- [ ] Delete copy libraries
+- [x] Delete copy libraries
 
 ### Maybe
 

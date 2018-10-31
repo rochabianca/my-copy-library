@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import Types from "../../Types";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
 
 const copyText = copy => {
   copy.select();
@@ -23,6 +26,11 @@ class copyLibrary extends Component {
     }
   };
 
+  onDeleteClick = id => {
+    const { firestore } = this.props;
+    firestore.delete({ collection: "copyLibrary", doc: id });
+  };
+
   onChange = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -38,10 +46,10 @@ class copyLibrary extends Component {
     return null;
   };
   render() {
-    const { copyLibrary } = this.props;
+    const { copyLibrary, copyMode } = this.props;
     if (copyLibrary) {
       return (
-        <div>
+        <div id={copyLibrary.id}>
           <label>
             <i className={this.chooseIcon(copyLibrary.type)} />{" "}
             {copyLibrary.type}
@@ -52,9 +60,15 @@ class copyLibrary extends Component {
             onClick={this.onClickFunction.bind(this, copyLibrary.id)}
             onChange={this.onChange}
           />
-          <button onClick={this.onClick.bind(this, copyLibrary.id)}>
-            Copy
-          </button>
+          {copyMode === 0 ? (
+            <button onClick={this.onDeleteClick.bind(this, copyLibrary.id)}>
+              Delete
+            </button>
+          ) : (
+            <button onClick={this.onClick.bind(this, copyLibrary.id)}>
+              Copy
+            </button>
+          )}
         </div>
       );
     } else {
@@ -63,4 +77,13 @@ class copyLibrary extends Component {
   }
 }
 
-export default copyLibrary;
+export default compose(
+  firestoreConnect([
+    {
+      collection: "copyLibrary"
+    }
+  ]),
+  connect((state, props) => ({
+    copyLibraries: state.firestore.ordered.copyLibrary
+  }))
+)(copyLibrary);
